@@ -17,17 +17,16 @@ public class Main {
             }
         }
         Manager.createSessionFactory();
-        City Madrid = Manager.addCity("Madrid", "Spain", 10000);
-        City Vienna = Manager.addCity("Vienna", "Austria", 11111);
-        City Budapest = Manager.addCity("Budapest", "Hungary", 22222);
+        Manager.addCity("Madrid", "Spain", 10000);
+        Manager.addCity("Vienna", "Austria", 11111);
+        Manager.addCity("Budapest", "Hungary", 22222);
 
-        Citizen Heinz1 = Manager.addCitizen(1, "Heinz", "Doofenshmirtz", 36);
-        Citizen Perry1 = Manager.addCitizen(1, "Perry", "The Platypus", 2);
-        Citizen Heinz2 = Manager.addCitizen(2, "Heinz", "Doofenshmirtz", 36);
-        Citizen Perry2 = Manager.addCitizen(2, "Perry", "The Platypus", 2);
-        Citizen Heinz3 = Manager.addCitizen(3, "Heinz", "Doofenshmirtz", 36);
-        Citizen Perry3 = Manager.addCitizen(3, "Perry", "The Platypus", 2);
-
+        Manager.addCitizen(1, "Heinz", "Doofenshmirtz", 36);
+        Manager.addCitizen(1, "Perry", "The Platypus", 2);
+        Manager.addCitizen(2, "Heinz", "Doofenshmirtz", 36);
+        Manager.addCitizen(2, "Perry", "The Platypus", 2);
+        Manager.addCitizen(3, "Heinz", "Doofenshmirtz", 36);
+        Manager.addCitizen(3, "Perry", "The Platypus", 2);
 
         Manager.listCollection(City.class, "");
         Manager.listCollection(Citizen.class, "");
