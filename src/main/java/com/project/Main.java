@@ -59,7 +59,7 @@ public class Main {
         System.out.println("Cities");
         for (Object city : Manager.listCollection(City.class, "")) {
             City cityRow = (City) city;
-            System.out.printf("\t %s, %s %s\n", cityRow.getName(), cityRow.getCountry(), cityRow.getPostalCode());
+            System.out.printf("\t %s, %s %s, %s\n", cityRow.getName(), cityRow.getCountry(), cityRow.getPostalCode(), cityRow.getCityId());
         }
 
         System.out.println("Citizens");

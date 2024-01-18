@@ -106,4 +106,43 @@ public class Manager {
         }
     }
 
+    public static void updateCitizen(long citizenId, String name, String lastName, int age, long cityId){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Citizen obj = (Citizen) session.get(Citizen.class, citizenId);
+            obj.setFirstName(name);
+            obj.setLastName(lastName);
+            obj.setAge(age);
+            obj.setCityId(cityId);
+            session.update(obj);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public static void updateCity(long cityId, String name, String country, int postalCode){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            City obj = (City) session.get(City.class, cityId);
+            obj.setName(name);
+            obj.setCountry(country);
+            obj.setPostalCode(postalCode);
+            session.update(obj);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
 }

@@ -1,10 +1,27 @@
 package com.project.Entities;
 
-public class Citizen {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "Citizen")
+public class Citizen implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "citizen_id", unique = true, nullable = false)
     private long id;
+
+    @Column(name = "city_id", nullable = false)
     private long cityId;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "age")
     private int age;
 
     public Citizen() {
@@ -63,7 +80,7 @@ public class Citizen {
     public String toString() {
         return "Citizen{" +
                 "id=" + id +
-                ", cityId=" + cityId +
+                ", cityId=" + getCityId() +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +

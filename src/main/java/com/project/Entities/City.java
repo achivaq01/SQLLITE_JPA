@@ -1,9 +1,26 @@
 package com.project.Entities;
 
-public class City {
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+
+@Entity
+@Table(name = "City")
+public class City implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "city_id", unique = true, nullable = false)
     private long cityId;
+    
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "postal_code")
     private int postalCode;
 
     public City() {
